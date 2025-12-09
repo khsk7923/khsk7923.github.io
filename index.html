@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style2.css" />
     </head>
     <body>
+    <?php include("connexion.php"); ?>
 		<div id="container">
 			<h1>SIG D'IDF</h1>
 			<img src="images/paris_8.jpg" alt="" id="ma-photo" />
@@ -16,67 +17,101 @@
 				<a href="apropos.html"><i class="fa fa-house-user"></i>A propos</a>
 				<a href="carte_leafle.php"><i class="fas fa-map"></i>CARTE</a>
 				
-			</div>
-
-			<h3 class="aaa">Le projet en  quelques mots  </h3>
-			<p class="aa">
-				À l’heure  du  numérique , de la numérisation massives ,des grands débats sur la protection  de l’environnement et l’écologie mais aussi l’accès de plus en plus aux informations à travers le numérique ,   aucun domaine , aucune structure étatique ou privée ne souhaite rester en marge en faisant exception à la règle. 
-				C’est dans cet ordre d’idées que la région ile de France a décidé de créer un site au de la collectivité pour donner plus de visibilité à la collectivité mais de donner plus d’information au commun des mortels sur les différentes communes en matières de services de base comme le nombre d’écoles ,d’hôpitaux ,etc… dans les communes .
-				
-				
-				<br>
-				De ce fait , elle a décidé  de doter le site de trois pages :ACCUEIL ; À PROPOS ET CARTES.
-				De chacune de ces pages on peut aller sur l’autre en utilisant la barre des menus :
-        <br>
-         
-			</p>
-
-			<ul class="aa">
-				<li>Cette page ACCUEIL est une page de présentation en gros du site  . Elle contient  trois grandes parties :
-					Une partie défilante qui contient un certains nombre de photo de cartes défilantes .
-					Une partie   explicative  à l’endroit du public .
-					Une partie formulaire  permettant au utilisateurs de contacter les gestionnaires du site en  les envoyant un message .
-				</li>
-
-				<li>La page À PROPOS est la  page  qui donnera plus de détails sur le projet et sur les raisons qui ont motivé le projet et sur  l’utilisation du site web pour permettre aux usagers   de profiter au maximum du site .  </li>
-
-				<li> Cette  page CARTE permet de visualiser les données géographiques à notre disposition ainsi que les résultats des requêtes qu’on a faites avec une légende permettant de comprendre la carte mais aussi sur panneau de droite   on y trouve les couches portant les noms des requêtes . Celles-ci  peuvent être cochés ou décochées .
-					J’ai choisi  cela car la taille de  la base de données n’est  pas assez grande sinon il serait mieux de faire un formulaire multicritères .
-					On a aussi la possibilité de régler  le zoom à partir du bouton en haut à gauche .
-					On a aussi la possibilité de cliquer sur un objet pour afficher un popup d’information sur l’objet .Il est important  de noter que l’affichage de ces couches nécessite la création d’une base de données et  les requêtes permettant  de les afficher .
-				</li>
-			</ul>
-
-		</br>
+            </div>
+        </br>
+        </br>
+        <marquee scrollAmount="2" : Vitesse 2 behavior="alternate" >
+        <h1>Soyez les  Bienvenus</h1>
+        </marquee>
+        </br>
+        </br>
         <div class ="center-div" style="height:482px; width:1265px; border:2px dotted #666666; background-color:rgba(0, 255, 0, 0.3);">
-     
-            <img title="PARIS8" src="images/carte_photo.jpg" border="2" height="482" width="1265">
-            
+            <marquee scrollAmount="2" : Vitesse 2 behavior="alternate" >  
+            <img title="PARIS8" src="images/paris_8.jpg" border="2" height="482" width="400" >
+            <img title="LA FRANCE" src="images/images.jfif" border="2" height="482" width="400">
+            <img title="LOGO ÎLE DE FRANCE" src="images/region.jpg" border="2" height="482" width="400">
+            <img title="DEPARTEMENTS D'ÎLE DE FRANCE" src="images/carte-ile-de-france.jpg" border="2" height="482" width="400">
+            <img title="TOUTES LES REGIONS DE FRANCE" src="images/Capture1.PNG" border="2" height="482" width="600">
+            <img title="POI D'ÎLE DE FRANCE ET REGIONS LIMITROPHES " src="images/Capture2.PNG" border="2" height="482" width="600">
+            <img title="POI D'ÎLE DE FRANCE" src="images/Capture3.PNG" border="2" height="482" width="600">
+            <img title="ECOLES" src="images/Capture4.PNG" border="2" height="482" width="600">
+            <img title="PTS ACTIVITÉS" src="images/Capture5.PNG" border="2" height="482" width="600">
+            <img title="HOPITAUX" src="images/Capture6.PNG" border="2" height="482" width="600">
+            </marquee>
             </div>
          </div>
     </br>
+    </br>
+    
+    
+    
+	<div class ="center-div" style="height:400px; width:1265px; border:2px dotted #666666; background-color:rgba(20, 82, 5, 0.9);">	
+   
+    <h2 class ="center-div">Contact</h2>
+	<br>
+	<form method="post" class ="center-div">
+		<label><strong>Civilité</strong></label>
+		<br>
+		<br>
+			<select name="civilite">
+				<option value="Madame">Madame</option>
+				<option value="Monsieur" selected>Monsieur</option>
+			</select>
+		<br>
+		<br>
+        <label><strong>Nom</strong></label>
+		<br>
+        <input type="text" name="nom" required>
+		<br>
+		<br>
+        <label><strong>Email</strong></label>
+		<br>
+        <input type="email" name="email" required>
+		<br>
+		<br>
+        <label><strong>Message</strong></label>
+		<br>
+        <textarea name="message" required></textarea>
+		<br>
+		<br>
+		<div>
+    	<button><strong>Envoyer</strong></button>
+		<br>
+		<br>
+  		</div>
+    </form>
+    </div>
+    <?php 
+    if(isset($_POST['message'])){
+        $entete  = 'MIME-Version: 1.0' . "\r\n";
+        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+        $entete .= 'From: ' . $_POST['email'] . "\r\n";
 
-				
-				<h3 class="aaa">Qui suis-je ?</h3>
-				<p class="aa">Je suis SYLLA Mahamadou  étudiant  Master 1 géomatique application et accessibilité à l'univesite Paris8
-				<br> Titulaire d'une  Licence en MIASHS, avant cette Licence ; j'avais effectué deux ans  d'etudes en mathematique à Paris7.
-				<br> L'infomatique etant partie integrante de la geomatique , je crois avoir le pré-requis necessaire pour reussir dans ce Master.
-				</p>
-			<footer id="footercom">
+        $message = '<h1>Message envoyé depuis la page Contact de monsite.fr</h1>
+        <p><b>Nom : </b>' . $_POST['nom'] . '<br>
+        <b>Email : </b>' . $_POST['email'] . '<br>
+        <b>Message : </b>' . $_POST['message'] . '</p>';
 
-				<div id="footer_text">
-				</div>
-			</footer>
-			<footer>
-				<div class="topnav">
-					<p>
-					<strong>SYLLA Mahamadou </strong>
+        $retour = mail('kanguinera@gmail.com', 'Envoi depuis page Contact', $message, $entete);
+        if($retour) {
+            echo '<p class ="center-div"><strong>Envoyé.</strong></p>';
+        }
+    }
+    ?>
+    </div>
+  <br>
+	<footer>
+		<div class="topnav">
+			<p>
+			<strong>SYLLA Mahamadou </strong>
 			
-					<br>
-					Je suis etudiant en Master1 de geomatique  à  l'univesite paris8
-					<br> Ce travail a pour but de donner  une reponse numerique aux  questions  relatives aux sig  .
-					<br>adresse contact : mahamadousyl@hotmail.fr</a>
-					</p>
-				</div>
-			</footer>
-	</body>
+			<br>
+			Je suis etudiant en Master1 de geomatique  à  l'univesite paris8
+			<br> Ce travail a pour but de donner  une reponse numerique aux  questions  relatives aux sig  .
+            <br> adresse contact : mahamadousyl@hotmail.fr </a>
+           
+            </p>
+		</div>
+	</footer>
+    </body>
+</html>
